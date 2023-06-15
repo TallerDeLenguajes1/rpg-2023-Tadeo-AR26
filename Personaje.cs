@@ -1,4 +1,6 @@
 using System;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 namespace Espacio.Personaje{
     public class Personaje{
         private int velocidad;
@@ -44,7 +46,7 @@ namespace Espacio.Personaje{
             NuevoPersonaje.Velocidad = obtenerAleatorio(1,11);
             NuevoPersonaje.Fuerza = obtenerAleatorio(1,11);
             NuevoPersonaje.Armadura = obtenerAleatorio(1, 11);
-            NuevoPersonaje.Salud = obtenerAleatorio(1, 101);
+            NuevoPersonaje.Salud = 100;
             NuevoPersonaje.Fecha_Nacimiento = new DateTime(obtenerAleatorio(1700, 2024), obtenerAleatorio(1, 13), obtenerAleatorio(1,31));
             NuevoPersonaje.Edad = obtenerEdad();
             NuevoPersonaje.Tipo = Tipos[obtenerAleatorio(0,4)];
@@ -52,5 +54,21 @@ namespace Espacio.Personaje{
             return NuevoPersonaje;
         }
     }
+
+    public class PersonajesJson{
+        public void GuardarPersonaje(string archivo, List<Personaje> personaje){
+           string json = JsonSerializer.Serialize(personaje);
+           File.WriteAllText(archivo + ".json", json);
+        }
+
+        //public List<Personaje> LeerPersonajes(string nombre, Personaje personaje){
+
+        //}
+        //public bool Existe(string nombre){
+
+        //}
+    }
 }
+
+
 
