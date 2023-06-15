@@ -1,2 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System;
+using Espacio.Personaje;
+
+Personaje NuevoPersonaje;
+FabricaDePersonajes fp = new FabricaDePersonajes();
+NuevoPersonaje = fp.crearPersonaje();
+Console.WriteLine(NuevoPersonaje.Nombre);
