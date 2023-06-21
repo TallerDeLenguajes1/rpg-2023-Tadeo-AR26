@@ -13,3 +13,18 @@ C:\Taller\rpg\obj\Debug\net7.0\refint\rpg.dll
 C:\Taller\rpg\obj\Debug\net7.0\rpg.pdb
 C:\Taller\rpg\obj\Debug\net7.0\rpg.genruntimeconfig.cache
 C:\Taller\rpg\obj\Debug\net7.0\ref\rpg.dll
+C:\Taller de Lenguajes\rpg-2023-Tadeo-AR26\obj\Debug\net7.0\rpg.csproj.AssemblyReference.cache
+C:\Taller de Lenguajes\rpg-2023-Tadeo-AR26\obj\Debug\net7.0\rpg.GeneratedMSBuildEditorConfig.editorconfig
+C:\Taller de Lenguajes\rpg-2023-Tadeo-AR26\obj\Debug\net7.0\rpg.AssemblyInfoInputs.cache
+C:\Taller de Lenguajes\rpg-2023-Tadeo-AR26\obj\Debug\net7.0\rpg.AssemblyInfo.cs
+C:\Taller de Lenguajes\rpg-2023-Tadeo-AR26\obj\Debug\net7.0\rpg.csproj.CoreCompileInputs.cache
+C:\Taller de Lenguajes\rpg-2023-Tadeo-AR26\obj\Debug\net7.0\rpg.dll
+C:\Taller de Lenguajes\rpg-2023-Tadeo-AR26\obj\Debug\net7.0\refint\rpg.dll
+C:\Taller de Lenguajes\rpg-2023-Tadeo-AR26\obj\Debug\net7.0\rpg.pdb
+C:\Taller de Lenguajes\rpg-2023-Tadeo-AR26\bin\Debug\net7.0\rpg.exe
+C:\Taller de Lenguajes\rpg-2023-Tadeo-AR26\bin\Debug\net7.0\rpg.deps.json
+C:\Taller de Lenguajes\rpg-2023-Tadeo-AR26\bin\Debug\net7.0\rpg.runtimeconfig.json
+C:\Taller de Lenguajes\rpg-2023-Tadeo-AR26\bin\Debug\net7.0\rpg.dll
+C:\Taller de Lenguajes\rpg-2023-Tadeo-AR26\bin\Debug\net7.0\rpg.pdb
+C:\Taller de Lenguajes\rpg-2023-Tadeo-AR26\obj\Debug\net7.0\rpg.genruntimeconfig.cache
+C:\Taller de Lenguajes\rpg-2023-Tadeo-AR26\obj\Debug\net7.0\ref\rpg.dll

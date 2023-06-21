@@ -60,10 +60,10 @@ namespace Espacio.Personaje{
            string json = JsonSerializer.Serialize(personaje);
            File.WriteAllText(archivo + ".json", json);
         }
-
-        //public List<Personaje> LeerPersonajes(string nombre, Personaje personaje){
-
-        //}
+        public List<Personaje> LeerPersonajes(string archivo){
+        string jsonstring = File.ReadAllText(archivo);
+        List<Personaje> PersonajesDeserializado = JsonSerializer.Deserialize<List<Personaje>>(jsonstring);
+        return PersonajesDeserializado;
         //public bool Existe(string nombre){
 
         //}
