@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Elda\\.nuget\\packages\\": {}
+    "C:\\Users\\tadem\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Taller de Lenguajes\\rpg-2023-Tadeo-AR26\\rpg.csproj",
+      "projectUniqueName": "C:\\Catedras_facultad\\TallerDeLenguajes\\rpg-2023-Tadeo-AR26\\rpg.csproj",
       "projectName": "rpg",
-      "projectPath": "C:\\Taller de Lenguajes\\rpg-2023-Tadeo-AR26\\rpg.csproj",
-      "packagesPath": "C:\\Users\\Elda\\.nuget\\packages\\",
-      "outputPath": "C:\\Taller de Lenguajes\\rpg-2023-Tadeo-AR26\\obj\\",
+      "projectPath": "C:\\Catedras_facultad\\TallerDeLenguajes\\rpg-2023-Tadeo-AR26\\rpg.csproj",
+      "packagesPath": "C:\\Users\\tadem\\.nuget\\packages\\",
+      "outputPath": "C:\\Catedras_facultad\\TallerDeLenguajes\\rpg-2023-Tadeo-AR26\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Elda\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\tadem\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -25,11 +25,16 @@ namespace Espacio.Personaje{
         public string? Apodo { get => apodo; set => apodo = value; }
         public DateTime Fecha_Nacimiento { get => fecha_nacimiento; set => fecha_nacimiento = value; }
         public int Salud { get => salud; set => salud = value; }
-        public int Edad { get => salud; set => salud = value; }
+        public int Edad { get => edad; set => edad = value; }
+
+        public void mostrarPersonaje(Personaje PersonajeMostrar){
+            Console.WriteLine($"Nombre: {PersonajeMostrar.Nombre}");
+            Console.WriteLine($"Tipo: {PersonajeMostrar.Tipo}");
+        }
     }
 
     public class FabricaDePersonajes{
-        Personaje NuevoPersonaje = new Personaje();
+        
         public string[] Tipos = {"Ogro", "Mago", "Caballero", "Duende"};
         public string[] Nombres = {"Tadeo", "Andrea", "Sergio"};
 
@@ -37,10 +42,9 @@ namespace Espacio.Personaje{
             Random random = new Random();
             return(random.Next(a,b));
         }
-        public int obtenerEdad(){
-            return((DateTime.Now.Subtract(NuevoPersonaje.Fecha_Nacimiento).Days) / 365);
-        }
+        
         public Personaje crearPersonaje(){
+            Personaje NuevoPersonaje = new Personaje();
             NuevoPersonaje.Destreza = obtenerAleatorio(1,6);
             NuevoPersonaje.Nivel = obtenerAleatorio(1,11);
             NuevoPersonaje.Velocidad = obtenerAleatorio(1,11);
@@ -48,7 +52,7 @@ namespace Espacio.Personaje{
             NuevoPersonaje.Armadura = obtenerAleatorio(1, 11);
             NuevoPersonaje.Salud = 100;
             NuevoPersonaje.Fecha_Nacimiento = new DateTime(obtenerAleatorio(1700, 2024), obtenerAleatorio(1, 13), obtenerAleatorio(1,31));
-            NuevoPersonaje.Edad = obtenerEdad();
+            NuevoPersonaje.Edad = DateTime.Now.Subtract(NuevoPersonaje.Fecha_Nacimiento).Days / 365;
             NuevoPersonaje.Tipo = Tipos[obtenerAleatorio(0,4)];
             NuevoPersonaje.Nombre = Nombres[obtenerAleatorio(0,3)];
             return NuevoPersonaje;
@@ -61,12 +65,12 @@ namespace Espacio.Personaje{
            File.WriteAllText(archivo + ".json", json);
         }
         public List<Personaje> LeerPersonajes(string archivo){
-        string jsonstring = File.ReadAllText(archivo);
-        List<Personaje> PersonajesDeserializado = JsonSerializer.Deserialize<List<Personaje>>(jsonstring);
-        return PersonajesDeserializado;
-        //public bool Existe(string nombre){
-
-        //}
+            List<Personaje> ListaPersonaje = new List<Personaje>();
+            string pathJSON = Directory.GetCurrentDirectory()+archivo;
+            string Json = File.ReadAllText(pathJSON);
+            ListaPersonaje = JsonSerializer.Deserialize<List<Personaje>>(Json); //
+            return ListaPersonaje;
+        }
     }
 }
 

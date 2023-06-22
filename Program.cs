@@ -1,22 +1,38 @@
 ﻿using System;
 using Espacio.Personaje;
 
-void Combate(int primero, int segundo){
-    while((ListaPersonaje[primero] > 0) && (ListaPersonaje[segundo] > 0)){
-        int dano = ((ListaPersonaje[primero].Destreza * ListaPersonaje[primero].Fuerza * ListaPersonaje[primero].Nivel) - (ListaPersonaje[segundo].Velocidad * ListaPersonaje[segundo].armadura))/500;
-        Console.WriteLine($"{ListaPersonaje[segundo].Apodo}RECIBE {dano} DE DAÑO");
+
+void Combate(List<Personaje> ListaPersonaje, int primero, int segundo)
+{
+    Random random = new Random();
+    while (ListaPersonaje[primero].Salud > 0 && ListaPersonaje[segundo].Salud > 0)
+    {
+        int dano = ((ListaPersonaje[primero].Destreza * ListaPersonaje[primero].Fuerza * ListaPersonaje[primero].Nivel * random.Next(1,101)) -
+                    (ListaPersonaje[segundo].Velocidad) * (ListaPersonaje[segundo].Armadura)) / 500;
+        Console.WriteLine($"{ListaPersonaje[segundo].Apodo} RECIBE {dano} DE DAÑO");
         ListaPersonaje[segundo].Salud -= dano;
+        Console.ReadLine();
         Console.WriteLine($"Salud Restante: {ListaPersonaje[segundo].Salud}");
-        int dano = ((ListaPersonaje[segundo].Destreza * ListaPersonaje[segundo].Fuerza * ListaPersonaje[segundo].Nivel) - (ListaPersonaje[primero].Velocidad * ListaPersonaje[primero].armadura))/500;
-        Console.WriteLine($"{ListaPersonaje[primero].Apodo}RECIBE {dano} DE DAÑO");
+
+        if (ListaPersonaje[segundo].Salud <= 0)
+        {
+            Console.WriteLine($"{ListaPersonaje[segundo].Apodo} HA SIDO ELIMINADO");
+            ListaPersonaje.RemoveAt(segundo);
+            break;
+        }
+
+        dano = ((ListaPersonaje[segundo].Destreza * ListaPersonaje[segundo].Fuerza * ListaPersonaje[segundo].Nivel * random.Next(1,101)) -
+                (ListaPersonaje[primero].Velocidad) * (ListaPersonaje[primero].Armadura)) / 500;
+        Console.WriteLine($"{ListaPersonaje[primero].Apodo} RECIBE {dano} DE DAÑO");
         ListaPersonaje[primero].Salud -= dano;
         Console.WriteLine($"Salud Restante: {ListaPersonaje[primero].Salud}");
-    }
-    if(ListaPersonaje[primero] <= 0){
-        ListaPersonaje.Remove(ListaPersonaje[primero]);
-    }
-    if(ListaPersonaje[segundo] <= 0){
-        ListaPersonaje.Remove(ListaPersonaje[segundo]);
+
+        if (ListaPersonaje[primero].Salud <= 0)
+        {
+            Console.WriteLine($"{ListaPersonaje[primero].Apodo} HA SIDO ELIMINADO");
+            ListaPersonaje.RemoveAt(primero);
+            break;
+        }
     }
 }
 
@@ -31,16 +47,20 @@ for(int i = 0; i<10; i++){
     ListaPersonaje.Add(NuevoPersonaje); //Crear 10 personajes de forma aleatoria y añadirlos a la lista
 }
 Console.WriteLine(ListaPersonaje[1].Velocidad);
+pjson.GuardarPersonaje("save" ,ListaPersonaje); //guardar personajes
 
 while(ListaPersonaje.Count() != 1){
-    Random random = new Random();h
+    Random random = new Random();
     int primero = 0, segundo = 0;
     while(primero == segundo){
         primero = random.Next(0, ListaPersonaje.Count());
         segundo = random.Next(0, ListaPersonaje.Count());
     }
-    if(ListaPersonaje[primero].Velocidad > ListaPersonaje[segundo].Velocidad){
-        Combate(primero, segundo);
+    if(ListaPersonaje[primero].Velocidad >= ListaPersonaje[segundo].Velocidad){
+        Combate(ListaPersonaje, primero, segundo);
+    }
+    else{
+        Combate(ListaPersonaje, segundo, primero);
     }
 }
-//pjson.GuardarPersonaje("save" ,ListaPersonaje); //guardar personajes
+
