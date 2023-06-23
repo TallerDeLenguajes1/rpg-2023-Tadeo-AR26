@@ -1,7 +1,7 @@
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-namespace Espacio.Personaje{
+namespace Espacio.Personajes{
     public class Personaje{
         private int velocidad;
         private int destreza;
@@ -27,51 +27,50 @@ namespace Espacio.Personaje{
         public int Salud { get => salud; set => salud = value; }
         public int Edad { get => edad; set => edad = value; }
 
-        public void mostrarPersonaje(Personaje PersonajeMostrar){
-            Console.WriteLine($"Nombre: {PersonajeMostrar.Nombre}");
-            Console.WriteLine($"Tipo: {PersonajeMostrar.Tipo}");
+        public void mostrarPersonaje(){
+            Console.WriteLine($"Nombre: {Nombre}");
+            Console.WriteLine($"Tipo: {Tipo}");
+        }
+
+        public void Habilidad(){
+            switch(Tipo){
+                case "Magician":
+                    Console.WriteLine($"{Nombre} ha usado su habilidad de {Tipo}");
+                    Console.WriteLine($"{Nombre} se ha curado 30 de vida");
+                    Salud = Salud + 30;
+                    break;
+                case "Esper":
+                    Console.WriteLine($"{Nombre} ha usado su habilidad de {Tipo}");
+                    Console.WriteLine($"{Nombre} ha obtenido +2 de ataque");
+                    Fuerza = Fuerza + 2;
+                    break;
+                case "Saint":
+                    Console.WriteLine($"{Nombre} ha usado su habilidad de {Tipo}");
+                    Console.WriteLine($"{Nombre} ha obtendio +2 de velocidad");
+                    Velocidad = Velocidad + 2;
+                    break;
+                case "Trascendent":
+                    Console.WriteLine($"{Nombre} ha usado su habilidad de {Tipo}");
+                    Console.WriteLine($"{Nombre} ha obtenido +2 de destreza");
+                    Destreza = Destreza + 2;
+                    break;
+                case "Royal":
+                    Console.WriteLine($"{Nombre} ha usado su habilidad de {Tipo}");
+                    Console.WriteLine($"{Nombre} ha obtenido +1 de destreza y +1 de fuerza");
+                    Destreza = Destreza + 1;
+                    Fuerza = Fuerza + 1;
+                    break;
+                case "Knight":
+                    Console.WriteLine($"{Nombre} ha usado su habilidad de {Tipo}");
+                    Console.WriteLine($"{Nombre} ha obtenido +2 de armadura");
+                    Armadura = Armadura + 2;
+                    break;
+            }
         }
     }
 
-    public class FabricaDePersonajes{
-        
-        public string[] Tipos = {"Ogro", "Mago", "Caballero", "Duende"};
-        public string[] Nombres = {"Tadeo", "Andrea", "Sergio"};
 
-        public int obtenerAleatorio(int a, int b){
-            Random random = new Random();
-            return(random.Next(a,b));
-        }
-        
-        public Personaje crearPersonaje(){
-            Personaje NuevoPersonaje = new Personaje();
-            NuevoPersonaje.Destreza = obtenerAleatorio(1,6);
-            NuevoPersonaje.Nivel = obtenerAleatorio(1,11);
-            NuevoPersonaje.Velocidad = obtenerAleatorio(1,11);
-            NuevoPersonaje.Fuerza = obtenerAleatorio(1,11);
-            NuevoPersonaje.Armadura = obtenerAleatorio(1, 11);
-            NuevoPersonaje.Salud = 100;
-            NuevoPersonaje.Fecha_Nacimiento = new DateTime(obtenerAleatorio(1700, 2024), obtenerAleatorio(1, 13), obtenerAleatorio(1,31));
-            NuevoPersonaje.Edad = DateTime.Now.Subtract(NuevoPersonaje.Fecha_Nacimiento).Days / 365;
-            NuevoPersonaje.Tipo = Tipos[obtenerAleatorio(0,4)];
-            NuevoPersonaje.Nombre = Nombres[obtenerAleatorio(0,3)];
-            return NuevoPersonaje;
-        }
-    }
-
-    public class PersonajesJson{
-        public void GuardarPersonaje(string archivo, List<Personaje> personaje){
-           string json = JsonSerializer.Serialize(personaje);
-           File.WriteAllText(archivo + ".json", json);
-        }
-        public List<Personaje> LeerPersonajes(string archivo){
-            List<Personaje> ListaPersonaje = new List<Personaje>();
-            string pathJSON = Directory.GetCurrentDirectory()+archivo;
-            string Json = File.ReadAllText(pathJSON);
-            ListaPersonaje = JsonSerializer.Deserialize<List<Personaje>>(Json); //
-            return ListaPersonaje;
-        }
-    }
+  
 }
 
 

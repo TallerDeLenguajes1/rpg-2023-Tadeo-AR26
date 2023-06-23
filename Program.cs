@@ -1,6 +1,7 @@
 ﻿using System;
-using Espacio.Personaje;
-
+using Espacio.Personajes;
+using Espacio.Fabrica;
+using Espacio.Persistencia;
 
 void Combate(List<Personaje> ListaPersonaje, int primero, int segundo)
 {
@@ -9,28 +10,29 @@ void Combate(List<Personaje> ListaPersonaje, int primero, int segundo)
     {
         int dano = ((ListaPersonaje[primero].Destreza * ListaPersonaje[primero].Fuerza * ListaPersonaje[primero].Nivel * random.Next(1,101)) -
                     (ListaPersonaje[segundo].Velocidad) * (ListaPersonaje[segundo].Armadura)) / 500;
-        Console.WriteLine($"{ListaPersonaje[segundo].Apodo} RECIBE {dano} DE DAÑO");
+        Console.WriteLine($"{ListaPersonaje[segundo].Nombre} RECIBE {dano} DE DAÑO");
         ListaPersonaje[segundo].Salud -= dano;
-        Console.ReadLine();
         Console.WriteLine($"Salud Restante: {ListaPersonaje[segundo].Salud}");
 
         if (ListaPersonaje[segundo].Salud <= 0)
         {
-            Console.WriteLine($"{ListaPersonaje[segundo].Apodo} HA SIDO ELIMINADO");
+            Console.WriteLine($"{ListaPersonaje[segundo].Nombre} HA SIDO ELIMINADO");
             ListaPersonaje.RemoveAt(segundo);
+            ListaPersonaje[primero].Habilidad();
             break;
         }
 
         dano = ((ListaPersonaje[segundo].Destreza * ListaPersonaje[segundo].Fuerza * ListaPersonaje[segundo].Nivel * random.Next(1,101)) -
                 (ListaPersonaje[primero].Velocidad) * (ListaPersonaje[primero].Armadura)) / 500;
-        Console.WriteLine($"{ListaPersonaje[primero].Apodo} RECIBE {dano} DE DAÑO");
+        Console.WriteLine($"{ListaPersonaje[primero].Nombre} RECIBE {dano} DE DAÑO");
         ListaPersonaje[primero].Salud -= dano;
         Console.WriteLine($"Salud Restante: {ListaPersonaje[primero].Salud}");
 
         if (ListaPersonaje[primero].Salud <= 0)
         {
-            Console.WriteLine($"{ListaPersonaje[primero].Apodo} HA SIDO ELIMINADO");
+            Console.WriteLine($"{ListaPersonaje[primero].Nombre} HA SIDO ELIMINADO");
             ListaPersonaje.RemoveAt(primero);
+            ListaPersonaje[segundo].Habilidad();
             break;
         }
     }
@@ -62,5 +64,10 @@ while(ListaPersonaje.Count() != 1){
     else{
         Combate(ListaPersonaje, segundo, primero);
     }
+    Console.WriteLine("Presione Enter para continuar");
+    Console.ReadLine();
 }
 
+foreach(Personaje per in ListaPersonaje){
+    per.mostrarPersonaje();
+}
