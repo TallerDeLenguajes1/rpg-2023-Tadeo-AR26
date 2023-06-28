@@ -16,5 +16,11 @@ namespace Espacio.Persistencia{
             ListaPersonaje = JsonSerializer.Deserialize<List<Personaje>>(Json); //
             return ListaPersonaje;
         }
+        public bool Existe(string archivo){
+        if (File.Exists(archivo)){
+            return true;
+            }
+        return false;
+        }
     }
 }

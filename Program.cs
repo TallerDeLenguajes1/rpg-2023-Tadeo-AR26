@@ -17,8 +17,8 @@ void Combate(List<Personaje> ListaPersonaje, int primero, int segundo)
         if (ListaPersonaje[segundo].Salud <= 0)
         {
             Console.WriteLine($"{ListaPersonaje[segundo].Nombre} HA SIDO ELIMINADO");
-            ListaPersonaje.RemoveAt(segundo);
             ListaPersonaje[primero].Habilidad();
+            ListaPersonaje.RemoveAt(segundo);
             break;
         }
 
@@ -31,8 +31,8 @@ void Combate(List<Personaje> ListaPersonaje, int primero, int segundo)
         if (ListaPersonaje[primero].Salud <= 0)
         {
             Console.WriteLine($"{ListaPersonaje[primero].Nombre} HA SIDO ELIMINADO");
-            ListaPersonaje.RemoveAt(primero);
             ListaPersonaje[segundo].Habilidad();
+            ListaPersonaje.RemoveAt(primero);
             break;
         }
     }
@@ -52,12 +52,14 @@ Console.WriteLine(ListaPersonaje[1].Velocidad);
 pjson.GuardarPersonaje("save" ,ListaPersonaje); //guardar personajes
 
 while(ListaPersonaje.Count() != 1){
+    Console.WriteLine($"Cantidad {ListaPersonaje.Count()}********************");
     Random random = new Random();
     int primero = 0, segundo = 0;
     while(primero == segundo){
         primero = random.Next(0, ListaPersonaje.Count());
-        segundo = random.Next(0, ListaPersonaje.Count());
+        segundo = random.Next(0, (ListaPersonaje.Count())-1);
     }
+    Console.WriteLine($"PRIMERO {primero} SEGUNDO {segundo} ************");
     if(ListaPersonaje[primero].Velocidad >= ListaPersonaje[segundo].Velocidad){
         Combate(ListaPersonaje, primero, segundo);
     }
