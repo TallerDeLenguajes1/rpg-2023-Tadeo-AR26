@@ -44,13 +44,17 @@ PersonajesJson pjson = new PersonajesJson();
 
 List<Personaje> ListaPersonaje = new List<Personaje>(); //Creo una lista de personajes
 
-for(int i = 0; i<10; i++){
-    NuevoPersonaje = fp.crearPersonaje();
-    ListaPersonaje.Add(NuevoPersonaje); //Crear 10 personajes de forma aleatoria y añadirlos a la lista
+if(pjson.Existe("save.json")){
+    ListaPersonaje = pjson.LeerPersonajes("\\save.json");
 }
-Console.WriteLine(ListaPersonaje[1].Velocidad);
-pjson.GuardarPersonaje("save" ,ListaPersonaje); //guardar personajes
-
+else{
+    for(int i = 0; i<10; i++){
+        NuevoPersonaje = fp.crearPersonaje();
+        ListaPersonaje.Add(NuevoPersonaje); //Crear 10 personajes de forma aleatoria y añadirlos a la lista
+    }
+    Console.WriteLine(ListaPersonaje[1].Velocidad);
+    pjson.GuardarPersonaje("save" ,ListaPersonaje); //guardar personajes
+}
 while(ListaPersonaje.Count() != 1){
     Console.WriteLine($"Cantidad {ListaPersonaje.Count()}********************");
     Random random = new Random();
