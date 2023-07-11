@@ -31,7 +31,6 @@ namespace Espacio.Personajes{
             Console.WriteLine($"Nombre: {Nombre}");
             Console.WriteLine($"Tipo: {Tipo}");
         }
-
         public void Habilidad(){
             switch(Tipo){
                 case "Magician":
