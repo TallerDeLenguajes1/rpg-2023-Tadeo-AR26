@@ -4,7 +4,6 @@ using Espacio.Fabrica;
 using Espacio.Persistencia;
 using Espacio.Combates;
 
-
 Personaje NuevoPersonaje, Usuario;
 FabricaDePersonajes fp = new FabricaDePersonajes(); //Inicializo las funciones fabrica y pjson.
 PersonajesJson pjson = new PersonajesJson();

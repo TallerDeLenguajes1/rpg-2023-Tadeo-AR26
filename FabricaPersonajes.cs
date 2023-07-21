@@ -2,8 +2,7 @@ using Espacio.Personajes;
 
 namespace Espacio.Fabrica{
     public class FabricaDePersonajes{
-        
-        public string[] Tipos = {"Magician", "Rogue", "Saint", "Cleric", "Royal", "Knight"};
+        public string[] Tipos = {"Mago", "Ladron", "Santo", "Clerigo", "Real", "Caballero"};
         public string[] Nombres = {"Orwell", "Aleister", "Crowley", "Carissa", "Elizard", "Kanzaki", "Mathers", "Kingsford", "Sprengel", "Aradia", "Izzard", "Marian", "Thor", "Mjolnir", "Fiamma", "Terra", "Birdway", "Othinus", "Felkin", "Cromwell", "Sigyn", "Bersi", "Wescott"};
 
         public int obtenerAleatorio(int a, int b){
@@ -38,7 +37,7 @@ namespace Espacio.Fabrica{
             Console.WriteLine("2- Ladrón");
             Console.WriteLine("3- Santo");
             Console.WriteLine("4- Clérigo");
-            Console.WriteLine("5- Royal");
+            Console.WriteLine("5- Real");
             Console.WriteLine("6- Caballero");
             int Tipo;
             bool x;

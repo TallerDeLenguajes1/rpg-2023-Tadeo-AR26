@@ -33,36 +33,56 @@ namespace Espacio.Personajes{
         }
         public void Habilidad(){
             switch(Tipo){
-                case "Magician":
-                    Console.WriteLine($"{Nombre} ha usado su habilidad de {Tipo}");
+                case "Clerigo":
+                    Console.WriteLine($"{Nombre} ha usado su habilidad");
                     Console.WriteLine($"{Nombre} se ha curado 30 de vida");
                     Salud = Salud + 30;
                     break;
-                case "Esper":
-                    Console.WriteLine($"{Nombre} ha usado su habilidad de {Tipo}");
-                    Console.WriteLine($"{Nombre} ha obtenido +2 de ataque");
+                case "Ladron":
+                    Console.WriteLine($"{Nombre} ha usado su habilidad");
+                    Console.WriteLine($"{Nombre} ha obtenido +2 de ataque por el resto del combate");
                     Fuerza = Fuerza + 2;
                     break;
-                case "Saint":
-                    Console.WriteLine($"{Nombre} ha usado su habilidad de {Tipo}");
-                    Console.WriteLine($"{Nombre} ha obtendio +2 de velocidad");
+                case "Santo":
+                    Console.WriteLine($"{Nombre} ha usado su habilidad");
+                    Console.WriteLine($"{Nombre} ha obtendio +2 de velocidad por el resto del combate");
                     Velocidad = Velocidad + 2;
                     break;
-                case "Trascendent":
-                    Console.WriteLine($"{Nombre} ha usado su habilidad de {Tipo}");
-                    Console.WriteLine($"{Nombre} ha obtenido +2 de destreza");
+                case "Mago":
+                    Console.WriteLine($"{Nombre} ha usado su habilidad");
+                    Console.WriteLine($"{Nombre} ha obtenido +2 de destreza por el resto del combate");
                     Destreza = Destreza + 2;
                     break;
-                case "Royal":
-                    Console.WriteLine($"{Nombre} ha usado su habilidad de {Tipo}");
-                    Console.WriteLine($"{Nombre} ha obtenido +1 de destreza y +1 de fuerza");
+                case "Real":
+                    Console.WriteLine($"{Nombre} ha usado su habilidad");
+                    Console.WriteLine($"{Nombre} ha obtenido +1 de destreza y +1 de fuerza por el resto del combate");
                     Destreza = Destreza + 1;
                     Fuerza = Fuerza + 1;
                     break;
-                case "Knight":
-                    Console.WriteLine($"{Nombre} ha usado su habilidad de {Tipo}");
-                    Console.WriteLine($"{Nombre} ha obtenido +2 de armadura");
+                case "Caballero":
+                    Console.WriteLine($"{Nombre} ha usado su habilidad");
+                    Console.WriteLine($"{Nombre} ha obtenido +2 de armadura por el resto del combate");
                     Armadura = Armadura + 2;
+                    break;
+            }
+        }
+        public void undoHabilidad(){
+            switch(Tipo){
+                case "Ladron":
+                    Fuerza = Fuerza - 2;
+                    break;
+                case "Santo":
+                    Velocidad = Velocidad - 2;
+                    break;
+                case "Mago":
+                    Destreza = Destreza - 2;
+                    break;
+                case "Real":
+                    Destreza = Destreza - 1;
+                    Fuerza = Fuerza - 1;
+                    break;
+                case "Caballero":
+                    Armadura = Armadura - 2;
                     break;
             }
         }
