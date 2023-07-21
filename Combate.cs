@@ -30,11 +30,13 @@ namespace Espacio.Combates{
                                 Usuario.Fuerza += 1;
                                 Usuario.Armadura += 1;
                                 Usuario.Velocidad += 1;
-                                Usuario.Salud += 25;
+                                Usuario.Salud += 20;
                                 if(habilidadFlag == 1){
                                     Usuario.undoHabilidad();
+                                    habilidadFlag = 0;
                                 }
-                                ListaDePersonajes.RemoveAt(0);
+                                if(ListaDePersonajes.Count() > 1){ListaDePersonajes.RemoveAt(0);}
+                                else{break;}
                                 Console.ReadLine();
                                 break;
                             }
@@ -42,8 +44,8 @@ namespace Espacio.Combates{
                             Console.Write($"{Usuario.Apodo} Recibe {dano} de daño\n");
                             Usuario.Salud -= dano;
                             Console.WriteLine($"Salud restante {Usuario.Salud}");
-                            if(ListaDePersonajes[0].Salud <= 0){
-                                Console.WriteLine($"{ListaDePersonajes[0].Apodo} Ha sido eliminado");
+                            if(Usuario.Salud <= 0){
+                                Console.WriteLine($"{Usuario.Apodo} Ha sido eliminado");
                                 Console.WriteLine($"GAME OVER");
                                 Console.ReadLine();
                                 break;
@@ -55,8 +57,8 @@ namespace Espacio.Combates{
                             Console.WriteLine($"{Usuario.Apodo} Recibe {dano} de daño");
                             Usuario.Salud -= dano;
                             Console.WriteLine($"Salud restante {Usuario.Salud}");
-                             if(ListaDePersonajes[0].Salud <= 0){
-                                Console.WriteLine($"{ListaDePersonajes[0].Apodo} Ha sido eliminado");
+                             if(Usuario.Salud <= 0){
+                                Console.WriteLine($"{Usuario.Apodo} Ha sido eliminado");
                                 Console.WriteLine($"GAME OVER");
                                 Console.ReadLine();
                                 break;
@@ -71,11 +73,13 @@ namespace Espacio.Combates{
                                 Usuario.Fuerza += 1;
                                 Usuario.Armadura += 1;
                                 Usuario.Velocidad += 1;
-                                Usuario.Salud += 25;
+                                Usuario.Salud += 20;
                                 if(habilidadFlag == 1){
                                     Usuario.undoHabilidad();
+                                    habilidadFlag = 0;
                                 }
-                                ListaDePersonajes.RemoveAt(0);
+                                if(ListaDePersonajes.Count() > 1){ListaDePersonajes.RemoveAt(0);}
+                                else{break;}
                                 Console.ReadLine();
                                 break;
                             }

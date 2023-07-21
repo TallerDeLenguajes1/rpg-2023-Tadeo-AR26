@@ -43,11 +43,11 @@ namespace Espacio.Fabrica{
             bool x;
             x = int.TryParse(Console.ReadLine(), out Tipo);
             PersonajeUsuario.Tipo = Tipos[Tipo-1];
-            PersonajeUsuario.Destreza = obtenerAleatorio(1,6);
-            PersonajeUsuario.Nivel = obtenerAleatorio(1,11);
-            PersonajeUsuario.Velocidad = obtenerAleatorio(1,11);
-            PersonajeUsuario.Fuerza = obtenerAleatorio(1,11);
-            PersonajeUsuario.Armadura = obtenerAleatorio(1, 11);
+            PersonajeUsuario.Destreza = 5;
+            PersonajeUsuario.Nivel = 5;
+            PersonajeUsuario.Velocidad = 5;
+            PersonajeUsuario.Fuerza = 8;
+            PersonajeUsuario.Armadura = 8;
             PersonajeUsuario.Salud = 100;
             PersonajeUsuario.Fecha_Nacimiento = new DateTime(obtenerAleatorio(1700, 2024), obtenerAleatorio(1, 13), obtenerAleatorio(1,28));
             PersonajeUsuario.Edad = DateTime.Now.Subtract(PersonajeUsuario.Fecha_Nacimiento).Days / 365;
