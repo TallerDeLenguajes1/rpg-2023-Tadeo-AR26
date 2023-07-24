@@ -4,9 +4,11 @@ using System.Threading;
 namespace Espacio.Combates{
     public class Combate{
         public List<Personaje> Combatir(List<Personaje> ListaDePersonajes, Personaje Usuario){
-            int action = 1, dano, habilidadFlag = 0;
+            int action = 1, dano, habilidadFlag = 0, item = 0;
             Random random = new Random();
+            Random ItemSpawn = new Random();
             bool x;
+            int[] objetos = new int[3];
             while((ListaDePersonajes[0].Salud > 0) && (Usuario.Salud > 0)){
                 Console.Clear();
                 Console.WriteLine($"{Usuario.Apodo} vs {ListaDePersonajes[0].Nombre}");
@@ -34,6 +36,21 @@ namespace Espacio.Combates{
                                 if(habilidadFlag == 1){
                                     Usuario.undoHabilidad();
                                     habilidadFlag = 0;
+                                }
+                                item = ItemSpawn.Next(1,11);
+                                switch(item){
+                                    case 1:
+                                        Console.WriteLine("Has obtenido una poción de vida (Restaura 35PS)");
+                                        objetos[0]++;
+                                        break;
+                                    case 2:
+                                        Console.WriteLine("Has obtenido una poción de habilidad (Puedes volver a usar tu habilidad)");
+                                        objetos[1]++;
+                                        break;
+                                    case 3:
+                                        Console.WriteLine("Has obtenido una poción de fuerza (Otorga 1 de fuerza permanente)");
+                                        objetos[2]++;
+                                        break;
                                 }
                                 if(ListaDePersonajes.Count() > 1){ListaDePersonajes.RemoveAt(0);}
                                 else{break;}
@@ -86,6 +103,56 @@ namespace Espacio.Combates{
                             Thread.Sleep(3000);
                         }
                         break;
+                    case 2:
+                        Console.WriteLine("Objetos disponibles");
+                        Console.WriteLine($"1- Poción de vida ({objetos[0]}) - Restaura 35 de vida");
+                        Console.WriteLine($"2- Poción de habilidad ({objetos[1]} - Permite utilizar tu habilidad de nuevo)");
+                        Console.WriteLine($"3- Poción de fuerza ({objetos[2]} - Obtiene 1 de fuerza de forma permanente)");
+                        x = int.TryParse(Console.ReadLine(), out action);
+                        switch(action){
+                            case 1:
+                                if(objetos[0] > 0){
+                                    Console.WriteLine("Has usado una poción de vida");
+                                    Console.WriteLine("Has restaurado 35 de salud");
+                                    Usuario.Salud += 35;
+                                    objetos[0]--;
+                                }
+                                else{
+                                    Console.WriteLine("No tienes pociones de vida");
+                                }
+                                Thread.Sleep(3000);
+                                break;
+                            case 2:
+                                if(objetos[1] > 0){
+                                    if(habilidadFlag == 1){
+                                        Console.WriteLine("Has usado una poción de habilidad");
+                                        Console.WriteLine("Puedes utilizar tu habilidad nuevamente");
+                                        habilidadFlag = 0;
+                                        objetos[1]--;
+                                    }
+                                    else{
+                                        Console.WriteLine("Aun no has usado tu habilidad en este combate");
+                                    }
+                                }
+                                else{
+                                    Console.WriteLine("No tienes pociones de habilidad");
+                                }
+                                Thread.Sleep(3000);
+                                break;
+                            case 3:
+                                if(objetos[2] > 0){
+                                        Console.WriteLine("Has usado una poción de fuerza");
+                                        Console.WriteLine("Has obtenido fuerza permanentemente");
+                                        Usuario.Fuerza++;
+                                        objetos[2]--;
+                                }
+                                    else{
+                                        Console.WriteLine("No tienes pociones de fuerza");
+                                    } 
+                                Thread.Sleep(3000);
+                                break;
+                        }
+                    break;
                     case 3:
                         if(habilidadFlag == 0){
                             Usuario.Habilidad();
