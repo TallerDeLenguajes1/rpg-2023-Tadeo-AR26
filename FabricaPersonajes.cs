@@ -53,5 +53,20 @@ namespace Espacio.Fabrica{
             PersonajeUsuario.Edad = DateTime.Now.Subtract(PersonajeUsuario.Fecha_Nacimiento).Days / 365;
             return PersonajeUsuario;
         }
+
+        public Personaje FinalBoss(){
+            Personaje FinalBoss = new Personaje();
+            FinalBoss.Destreza = 10;
+            FinalBoss.Nivel = 5;
+            FinalBoss.Velocidad = 7;
+            FinalBoss.Fuerza = 7;
+            FinalBoss.Armadura = 7;
+            FinalBoss.Salud = 350;
+            FinalBoss.Fecha_Nacimiento = new DateTime(obtenerAleatorio(1700, 2024), obtenerAleatorio(1, 13), obtenerAleatorio(1,28));
+            FinalBoss.Edad = DateTime.Now.Subtract(FinalBoss.Fecha_Nacimiento).Days / 365;
+            FinalBoss.Tipo = "Boss";
+            FinalBoss.Nombre = Nombres[obtenerAleatorio(0,23)];
+            return FinalBoss;
+        }
     }
 }

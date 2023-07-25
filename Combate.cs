@@ -13,6 +13,30 @@ namespace Espacio.Combates{
                 Console.Clear();
                 Console.WriteLine($"{Usuario.Apodo} vs {ListaDePersonajes[0].Nombre}");
                 Console.WriteLine($"{Usuario.Salud} PS  {ListaDePersonajes[0].Salud}");
+                if(ListaDePersonajes[0].Tipo == "Boss"){
+                    Console.WriteLine("▒▒▒▒▒▒▒▒▒▒▒▄▄▄▄░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                    Console.WriteLine("▒▒▒▒▒▒▒▒▒▄██████▒▒▒▒▒▄▄▄█▄▒▒▒▒▒▒▒▒▒▒");
+                    Console.WriteLine("▒▒▒▒▒▒▒▄██▀░░▀██▄▒▒▒▒████████▄▒▒▒▒▒▒");
+                    Console.WriteLine("▒▒▒▒▒▒███░░░░░░██▒▒▒▒▒▒█▀▀▀▀▀██▄▄▒▒▒");
+                    Console.WriteLine("▒▒▒▒▒▄██▌░░░░░░░██▒▒▒▒▐▌▒▒▒▒▒▒▒▒▀█▄▒");
+                    Console.WriteLine("▒▒▒▒▒███░░▐█░█▌░██▒▒▒▒█▌▒▒▒▒▒▒▒▒▒▒▀▌");
+                    Console.WriteLine("▒▒▒▒████░▐█▌░▐█▌██▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                    Console.WriteLine("▒▒▒▐████░▐░░░░░▌██▒▒▒█▌▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                    Console.WriteLine("▒▒▒▒████░░░▄█░░░██▒▒▐█▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                    Console.WriteLine("▒▒▒▒████░░░██░░██▌▒▒█▌▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                    Console.WriteLine("▒▒▒▒████▌░▐█░░███▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                    Console.WriteLine("▒▒▒▒▐████░░▌░███▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                    Console.WriteLine("▒▒▒▒▒████░░░███▒▒▒▒█▌▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                    Console.WriteLine("▒▒▒██████▌░████▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                    Console.WriteLine("▒▐████████████▒▒███▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                    Console.WriteLine("▒█████████████▄████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                    Console.WriteLine("██████████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                    Console.WriteLine("██████████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                    Console.WriteLine("█████████████████▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                    Console.WriteLine("█████████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                    Console.WriteLine("████████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                    Console.WriteLine("████████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                }
                 Console.WriteLine("╔═══════════════════════════════════════════╗");
                 Console.WriteLine("║                                           ║");
                 Console.WriteLine("║1-Combatir    2-Usar Objeto    3-Habilidad ║");
