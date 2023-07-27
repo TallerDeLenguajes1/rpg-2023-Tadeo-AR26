@@ -4,6 +4,7 @@ namespace Espacio.Fabrica{
     public class FabricaDePersonajes{
         public string[] Tipos = {"Mago", "Ladron", "Santo", "Clerigo", "Real", "Caballero"};
         public string[] Nombres = {"Orwell", "Aleister", "Crowley", "Carissa", "Elizard", "Kanzaki", "Mathers", "Kingsford", "Sprengel", "Aradia", "Izzard", "Marian", "Thor", "Mjolnir", "Fiamma", "Terra", "Birdway", "Othinus", "Felkin", "Cromwell", "Sigyn", "Bersi", "Wescott"};
+        public string[] Apodos = {"Orwell", "Aleister", "Crowley", "Carissa", "Elizard", "Kanzaki", "Mathers", "Kingsford", "Sprengel", "Aradia", "Izzard", "Marian", "Thor", "Mjolnir", "Fiamma", "Terra", "Birdway", "Othinus", "Felkin", "Cromwell", "Sigyn", "Bersi", "Wescott"};
 
         public int obtenerAleatorio(int a, int b){
             Random random = new Random();
@@ -22,6 +23,7 @@ namespace Espacio.Fabrica{
             NuevoPersonaje.Edad = DateTime.Now.Subtract(NuevoPersonaje.Fecha_Nacimiento).Days / 365;
             NuevoPersonaje.Tipo = Tipos[obtenerAleatorio(0,6)];
             NuevoPersonaje.Nombre = Nombres[obtenerAleatorio(0,23)];
+            NuevoPersonaje.Apodo = Apodos[obtenerAleatorio(0,23)];
             return NuevoPersonaje;
         }
 

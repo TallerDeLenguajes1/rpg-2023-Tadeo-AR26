@@ -29,7 +29,7 @@ namespace Espacio.Personajes{
 
         public void mostrarPersonaje(){
             Console.WriteLine($"Nombre: {Nombre}");
-            Console.WriteLine($"Apodo {Apodo}");
+            Console.WriteLine($"Apodo: {Apodo}");
             Console.WriteLine($"Tipo: {Tipo}");
             Console.WriteLine($"Nivel: {Nivel}");
             Console.WriteLine($"Fuerza: {Fuerza}");

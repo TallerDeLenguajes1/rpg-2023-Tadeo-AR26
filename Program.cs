@@ -25,7 +25,7 @@ else{
     pjson.GuardarPersonaje("save" ,ListaPersonaje); //guardar personajes
 }
 Usuario = fp.Usuario();
-ListaPersonaje = cb.Combatir(ListaPersonaje, Usuario);
+/*ListaPersonaje = cb.Combatir(ListaPersonaje, Usuario);
 NuevoPersonaje = fp.FinalBoss();
 ListaPersonaje.RemoveAt(0);
 ListaPersonaje.Add(NuevoPersonaje);
@@ -57,4 +57,19 @@ catch (WebException ex){
     Console.WriteLine("No se ha podido acceder a la API");
 }
 
-ListaPersonaje = cb.Combatir(ListaPersonaje, Usuario);
+ListaPersonaje = cb.Combatir(ListaPersonaje, Usuario); */
+
+Console.Clear();
+Console.WriteLine("╔═══════════════════════════════════════════╗");
+Console.WriteLine("║                                           ║");
+Console.WriteLine("║   Felicidades has completado el juego     ║");
+Console.WriteLine("║                                           ║");
+Console.WriteLine("╚═══════════════════════════════════════════╝");
+Thread.Sleep(3000);
+string mostrarStats = "Tu personaje:";
+for(int i = 0; i<mostrarStats.Length; i++){
+    Console.Write($"{mostrarStats[i]}");
+    Thread.Sleep(70);
+}
+Console.WriteLine("");
+Usuario.mostrarPersonaje();
