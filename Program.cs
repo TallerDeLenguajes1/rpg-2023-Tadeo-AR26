@@ -25,51 +25,53 @@ else{
     pjson.GuardarPersonaje("save" ,ListaPersonaje); //guardar personajes
 }
 Usuario = fp.Usuario();
-/*ListaPersonaje = cb.Combatir(ListaPersonaje, Usuario);
-NuevoPersonaje = fp.FinalBoss();
-ListaPersonaje.RemoveAt(0);
-ListaPersonaje.Add(NuevoPersonaje);
+ListaPersonaje = cb.Combatir(ListaPersonaje, Usuario);
+if(Usuario.Salud > 0){
+    NuevoPersonaje = fp.FinalBoss();
+    ListaPersonaje.RemoveAt(0);
+    ListaPersonaje.Add(NuevoPersonaje);
 
-var url = $"https://api.adviceslip.com/advice";
-var request = (HttpWebRequest)WebRequest.Create(url);
-request.Method = "GET";
-request.ContentType = "application/json";
-request.Accept = "application/json";
+    var url = $"https://api.adviceslip.com/advice";
+    var request = (HttpWebRequest)WebRequest.Create(url);
+    request.Method = "GET";
+    request.ContentType = "application/json";
+    request.Accept = "application/json";
 
-try{
-    using(WebResponse response = request.GetResponse()){
-        using(Stream strReader = response.GetResponseStream()){
-            if(strReader == null) return;
-            using(StreamReader objReader = new StreamReader(strReader)){
-                string ResponseBody = objReader.ReadToEnd();
-                Root quote = JsonSerializer.Deserialize<Root>(ResponseBody);
-                for(int i = 0; i < quote.slip.advice.Length; i++){
-                    Console.Write($"{quote.slip.advice[i]}");
-                    Thread.Sleep(70);
+    try{
+        using(WebResponse response = request.GetResponse()){
+            using(Stream strReader = response.GetResponseStream()){
+                if(strReader == null) return;
+                using(StreamReader objReader = new StreamReader(strReader)){
+                    string ResponseBody = objReader.ReadToEnd();
+                    Root quote = JsonSerializer.Deserialize<Root>(ResponseBody);
+                    for(int i = 0; i < quote.slip.advice.Length; i++){
+                        Console.Write($"{quote.slip.advice[i]}");
+                        Thread.Sleep(70);
+                    }
+                    Console.Write("...");
+                    Thread.Sleep(3000);
                 }
-                Console.Write("...");
-                Thread.Sleep(3000);
             }
         }
     }
-}
-catch (WebException ex){
-    Console.WriteLine("No se ha podido acceder a la API");
-}
+    catch (WebException ex){
+        Console.WriteLine("No se ha podido acceder a la API");
+    }
 
-ListaPersonaje = cb.Combatir(ListaPersonaje, Usuario); */
+    ListaPersonaje = cb.Combatir(ListaPersonaje, Usuario); 
 
-Console.Clear();
-Console.WriteLine("╔═══════════════════════════════════════════╗");
-Console.WriteLine("║                                           ║");
-Console.WriteLine("║   Felicidades has completado el juego     ║");
-Console.WriteLine("║                                           ║");
-Console.WriteLine("╚═══════════════════════════════════════════╝");
-Thread.Sleep(3000);
-string mostrarStats = "Tu personaje:";
-for(int i = 0; i<mostrarStats.Length; i++){
-    Console.Write($"{mostrarStats[i]}");
-    Thread.Sleep(70);
+    Console.Clear();
+    Console.WriteLine("╔═══════════════════════════════════════════╗");
+    Console.WriteLine("║                                           ║");
+    Console.WriteLine("║   Felicidades has completado el juego     ║");
+    Console.WriteLine("║                                           ║");
+    Console.WriteLine("╚═══════════════════════════════════════════╝");
+    Thread.Sleep(3000);
+    string mostrarStats = "Tu personaje:";
+    for(int i = 0; i<mostrarStats.Length; i++){
+        Console.Write($"{mostrarStats[i]}");
+        Thread.Sleep(70);
+    }
+    Console.WriteLine("");
+    Usuario.mostrarPersonaje();
 }
-Console.WriteLine("");
-Usuario.mostrarPersonaje();
