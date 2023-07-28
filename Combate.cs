@@ -51,7 +51,7 @@ namespace Espacio.Combates{
                             ListaDePersonajes[0].Salud -= dano;
                             Console.WriteLine($"Salud restante {ListaDePersonajes[0].Salud}");
                             if(ListaDePersonajes[0].Salud <= 0){
-                                Console.WriteLine($"{ListaDePersonajes[0].Apodo} Ha sido eliminado");
+                                Console.WriteLine($"{ListaDePersonajes[0].Nombre} Ha sido eliminado");
                                 Usuario.Nivel++;
                                 Usuario.Fuerza += 1;
                                 Usuario.Armadura += 1;
@@ -78,6 +78,7 @@ namespace Espacio.Combates{
                                 }
                                 if(ListaDePersonajes.Count() > 1){ListaDePersonajes.RemoveAt(0);}
                                 else{break;}
+                                Console.WriteLine("Presione para continuar");
                                 Console.ReadLine();
                                 break;
                             }
@@ -109,7 +110,7 @@ namespace Espacio.Combates{
                             ListaDePersonajes[0].Salud -= dano;
                             Console.WriteLine($"Salud restante {ListaDePersonajes[0].Salud}");
                             if(ListaDePersonajes[0].Salud <= 0){
-                                Console.WriteLine($"{ListaDePersonajes[0].Apodo} Ha sido eliminado");
+                                Console.WriteLine($"{ListaDePersonajes[0].Nombre} Ha sido eliminado");
                                 Usuario.Nivel++;
                                 Usuario.Fuerza += 1;
                                 Usuario.Armadura += 1;
@@ -119,8 +120,24 @@ namespace Espacio.Combates{
                                     Usuario.undoHabilidad();
                                     habilidadFlag = 0;
                                 }
+                                item = ItemSpawn.Next(1,11);
+                                switch(item){
+                                    case 1:
+                                        Console.WriteLine("Has obtenido una poción de vida (Restaura 35PS)");
+                                        objetos[0]++;
+                                        break;
+                                    case 2:
+                                        Console.WriteLine("Has obtenido una poción de habilidad (Puedes volver a usar tu habilidad)");
+                                        objetos[1]++;
+                                        break;
+                                    case 3:
+                                        Console.WriteLine("Has obtenido una poción de fuerza (Otorga 1 de fuerza permanente)");
+                                        objetos[2]++;
+                                        break;
+                                }
                                 if(ListaDePersonajes.Count() > 1){ListaDePersonajes.RemoveAt(0);}
                                 else{break;}
+                                Console.WriteLine("Presione para continuar");
                                 Console.ReadLine();
                                 break;
                             }
@@ -130,8 +147,8 @@ namespace Espacio.Combates{
                     case 2:
                         Console.WriteLine("Objetos disponibles");
                         Console.WriteLine($"1- Poción de vida ({objetos[0]}) - Restaura 35 de vida");
-                        Console.WriteLine($"2- Poción de habilidad ({objetos[1]} - Permite utilizar tu habilidad de nuevo)");
-                        Console.WriteLine($"3- Poción de fuerza ({objetos[2]} - Obtiene 1 de fuerza de forma permanente)");
+                        Console.WriteLine($"2- Poción de habilidad ({objetos[1]}) - Permite utilizar tu habilidad de nuevo");
+                        Console.WriteLine($"3- Poción de fuerza ({objetos[2]}) - Obtiene 1 de fuerza de forma permanente");
                         x = int.TryParse(Console.ReadLine(), out action);
                         switch(action){
                             case 1:

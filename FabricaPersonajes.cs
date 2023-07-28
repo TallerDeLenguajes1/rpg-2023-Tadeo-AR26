@@ -4,7 +4,7 @@ namespace Espacio.Fabrica{
     public class FabricaDePersonajes{
         public string[] Tipos = {"Mago", "Ladron", "Santo", "Clerigo", "Real", "Caballero"};
         public string[] Nombres = {"Orwell", "Aleister", "Crowley", "Carissa", "Elizard", "Kanzaki", "Mathers", "Kingsford", "Sprengel", "Aradia", "Izzard", "Marian", "Thor", "Mjolnir", "Fiamma", "Terra", "Birdway", "Othinus", "Felkin", "Cromwell", "Sigyn", "Bersi", "Wescott"};
-        public string[] Apodos = {"Orwell", "Aleister", "Crowley", "Carissa", "Elizard", "Kanzaki", "Mathers", "Kingsford", "Sprengel", "Aradia", "Izzard", "Marian", "Thor", "Mjolnir", "Fiamma", "Terra", "Birdway", "Othinus", "Felkin", "Cromwell", "Sigyn", "Bersi", "Wescott"};
+        public string[] Apodos = {"El Mago", "El Sacerdote", "La emperatriz", "El Emperador", "El Hierofante", "El enamorado", "El carro", "El ermitaño", "La Justicia", "El hermitaño", "La rueda", "La fuerza", "El colgado", "La muerte", "La torre", "La estrella", "La Luna", "El sol", "El juicio", "El mundo", "El loco"};
 
         public int obtenerAleatorio(int a, int b){
             Random random = new Random();
@@ -23,7 +23,7 @@ namespace Espacio.Fabrica{
             NuevoPersonaje.Edad = DateTime.Now.Subtract(NuevoPersonaje.Fecha_Nacimiento).Days / 365;
             NuevoPersonaje.Tipo = Tipos[obtenerAleatorio(0,6)];
             NuevoPersonaje.Nombre = Nombres[obtenerAleatorio(0,23)];
-            NuevoPersonaje.Apodo = Apodos[obtenerAleatorio(0,23)];
+            NuevoPersonaje.Apodo = Apodos[obtenerAleatorio(0,21)];
             return NuevoPersonaje;
         }
 
@@ -59,7 +59,7 @@ namespace Espacio.Fabrica{
         public Personaje FinalBoss(){
             Personaje FinalBoss = new Personaje();
             FinalBoss.Destreza = 10;
-            FinalBoss.Nivel = 5;
+            FinalBoss.Nivel = 7;
             FinalBoss.Velocidad = 7;
             FinalBoss.Fuerza = 7;
             FinalBoss.Armadura = 7;
@@ -67,7 +67,8 @@ namespace Espacio.Fabrica{
             FinalBoss.Fecha_Nacimiento = new DateTime(obtenerAleatorio(1700, 2024), obtenerAleatorio(1, 13), obtenerAleatorio(1,28));
             FinalBoss.Edad = DateTime.Now.Subtract(FinalBoss.Fecha_Nacimiento).Days / 365;
             FinalBoss.Tipo = "Boss";
-            FinalBoss.Nombre = Nombres[obtenerAleatorio(0,23)];
+            FinalBoss.Nombre = "Coronzon";
+            FinalBoss.Apodo = "Archbishop of the Anglican Church";
             return FinalBoss;
         }
     }

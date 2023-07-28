@@ -7,6 +7,7 @@ using Espacio.Persistencia;
 using Espacio.Combates;
 using Espacio.Quotes;
 
+Console.Clear();
 Personaje NuevoPersonaje, Usuario;
 FabricaDePersonajes fp = new FabricaDePersonajes(); //Inicializo las funciones fabrica y pjson.
 PersonajesJson pjson = new PersonajesJson();
@@ -64,6 +65,8 @@ if(Usuario.Salud > 0){
     Console.WriteLine("╔═══════════════════════════════════════════╗");
     Console.WriteLine("║                                           ║");
     Console.WriteLine("║   Felicidades has completado el juego     ║");
+    Console.WriteLine("║                                           ║");
+    Console.WriteLine("║          Muchas gracias por jugar         ║");
     Console.WriteLine("║                                           ║");
     Console.WriteLine("╚═══════════════════════════════════════════╝");
     Thread.Sleep(3000);
